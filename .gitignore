@@ -1,3 +1,6 @@
+# Ignore ACP intermediate directory
+intermediate
+
 # Library folder and link
 lib/
 lib
