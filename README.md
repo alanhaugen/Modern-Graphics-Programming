@@ -11,6 +11,9 @@ https://paroj.github.io/gltut/
 - [ ] Week 22. I. The Basics
 - [ ] Week 22. Introduction
 - [ ] Week 22. 1. Hello, Triangle!
+
+![triangle](data/tut01.png "Triangle")
+
 - [ ] Week 22. 2. Playing with Colors
 - [ ] Week 23. II. Positioning
 - [ ] Week 23. 3. OpenGL's Moving Triangle
