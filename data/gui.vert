@@ -1,4 +1,4 @@
-#version 330 core
+#version 320 es
 // es
 //core
 

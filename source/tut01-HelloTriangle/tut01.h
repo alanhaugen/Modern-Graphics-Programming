@@ -1,13 +1,14 @@
-#ifndef TUT1_H
-#define TUT1_H
+#ifndef TUT01_H
+#define TUT01_H
 
 #include <core/x-platform/scene.h>
 
-class Tut1 : public IScene
+class Tut01 : public IScene
 {
 public:
-    Tut1();
+    Tut01();
 
+    void Init();
     void Update();
     void UpdateAfterPhysics();
 }; 

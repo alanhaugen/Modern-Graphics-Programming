@@ -16,7 +16,8 @@ LIBS = \
 #############################################################################
 
 SOURCES = \
-    $(wildcard source/*.cpp)
+    $(wildcard source/*.cpp) \
+    $(wildcard source/tut01-HelloTriangle/*.cpp)
 
 #############################################################################
 # Setup Asset Conditioning Pipeline

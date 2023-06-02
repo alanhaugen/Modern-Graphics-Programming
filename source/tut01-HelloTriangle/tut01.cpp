@@ -1,17 +1,21 @@
-#include <tut1.h>
+#include "tut01.h"
 
-Tut1::Tut1()
+Tut01::Tut01()
 {
 }
 
-void Tut1::Update()
+void Tut01::Init()
 {
 }
 
-void Tut1::UpdateAfterPhysics()
+void Tut01::Update()
 {
 }
 
+void Tut01::UpdateAfterPhysics()
+{
+}
+/*
 #include <algorithm>
 #include <string>
 #include <vector>
@@ -187,3 +191,4 @@ void keyboard(unsigned char key, int x, int y)
 
 
 unsigned int defaults(unsigned int displayMode, int &width, int &height) {return displayMode;}
+*/

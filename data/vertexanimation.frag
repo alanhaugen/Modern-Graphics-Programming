@@ -1,4 +1,4 @@
-#version 330 core
+#version 320 es
 
 layout(location=0) out vec4 vFragColor;	//fragment shader output
 
