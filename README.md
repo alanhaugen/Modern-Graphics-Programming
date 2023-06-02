@@ -8,9 +8,9 @@ https://paroj.github.io/gltut/
 
 ## Study plan
 
-- [ ] Week 22. I. The Basics
-- [ ] Week 22. Introduction
-- [ ] Week 22. 1. Hello, Triangle!
+- [x] Week 22. I. The Basics
+- [x] Week 22. Introduction
+- [x] Week 22. 1. Hello, Triangle!
 
 ![triangle](data/tut01.png "Triangle")
 
