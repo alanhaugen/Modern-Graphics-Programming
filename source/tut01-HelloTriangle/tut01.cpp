@@ -23,21 +23,22 @@ void Tut01::Init()
     delete simpleVertShader;
     delete simpleFragShader;
 
-    drawable = renderer->CreateDrawable(vertices, indices, shaders, &textures);
+    triangle = renderer->CreateDrawable(vertices, indices, shaders, NULL);
     description = new Text("Tut01");
 
-    components.Add(triangle);
     components.Add(description);
 }
 
 void Tut01::Update()
 {
+    renderer->Draw(triangle);
 }
 
 void Tut01::UpdateAfterPhysics()
 {
 }
-/*
+
+/* Original source code for tut01
 #include <algorithm>
 #include <string>
 #include <vector>
