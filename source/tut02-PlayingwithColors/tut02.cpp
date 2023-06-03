@@ -11,9 +11,9 @@ void Tut02::Init()
     Array<unsigned int> indices;
     Array<String> shaders(2);
 
-    vertices.Add(IDrawable::Vertex(glm::vec3( 1.0f,  1.0f, -1.0f)));
-    vertices.Add(IDrawable::Vertex(glm::vec3( 1.0f, -1.0f, -1.0f)));
-    vertices.Add(IDrawable::Vertex(glm::vec3(-1.0f, -1.0f, -1.0f)));
+    vertices.Add(IDrawable::Vertex(glm::vec3( 1.0f,  1.0f, -1.0f), glm::vec4(0.0f, 0.0f, 0.0f, 1.0f)));
+    vertices.Add(IDrawable::Vertex(glm::vec3( 1.0f, -1.0f, -1.0f), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f)));
+    vertices.Add(IDrawable::Vertex(glm::vec3(-1.0f, -1.0f, -1.0f), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f)));
 
     IFile *simpleVertShader = filesystem->Open(URL("data/VertexColors.vert"), PLAIN_TEXT);
     IFile *simpleFragShader = filesystem->Open(URL("data/VertexColors.frag"), PLAIN_TEXT);
