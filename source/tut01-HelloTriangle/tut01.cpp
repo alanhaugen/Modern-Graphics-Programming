@@ -1,4 +1,5 @@
 #include "tut01.h"
+#include <core/application.h>
 
 Tut01::Tut01()
 {
@@ -10,9 +11,9 @@ void Tut01::Init()
     Array<unsigned int> indices;
     Array<String> shaders(2);
 
-    vertices.Add(IDrawable::Vertex(glm::vec3( 1.0f,  1.0f, -1.0f), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f)));
-    vertices.Add(IDrawable::Vertex(glm::vec3( 1.0f, -1.0f, -1.0f), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f)));
-    vertices.Add(IDrawable::Vertex(glm::vec3(-1.0f, -1.0f, -1.0f), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f)));
+    vertices.Add(IDrawable::Vertex(glm::vec3( 1.0f,  1.0f, -1.0f)));
+    vertices.Add(IDrawable::Vertex(glm::vec3( 1.0f, -1.0f, -1.0f)));
+    vertices.Add(IDrawable::Vertex(glm::vec3(-1.0f, -1.0f, -1.0f)));
 
     String vertexShader(
         "#version 330\n"
@@ -47,6 +48,11 @@ void Tut01::Init()
 void Tut01::Update()
 {
     renderer->Draw(triangle);
+
+    if (input.Released(input.Key.SPACE))
+    {
+        Application::NextScene();
+    }
 }
 
 void Tut01::UpdateAfterPhysics()
