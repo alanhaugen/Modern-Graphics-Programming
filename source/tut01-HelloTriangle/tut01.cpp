@@ -14,9 +14,6 @@ void Tut01::Init()
     vertices.Add(IDrawable::Vertex(glm::vec3( 1.0f, -1.0f, -1.0f), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f)));
     vertices.Add(IDrawable::Vertex(glm::vec3(-1.0f, -1.0f, -1.0f), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f)));
 
-    IFile *simpleVertShader = filesystem->Open(URL("data/simple.vert"), PLAIN_TEXT);
-    IFile *simpleFragShader = filesystem->Open(URL("data/simple.frag"), PLAIN_TEXT);
-
     String vertexShader(
         "#version 330\n"
         "layout(location = 0) in vec4 position;\n"
