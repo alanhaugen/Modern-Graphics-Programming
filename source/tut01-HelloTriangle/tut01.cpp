@@ -49,7 +49,7 @@ void Tut01::Update()
 {
     renderer->Draw(triangle);
 
-    if (input.Released(input.Key.SPACE))
+    if (input.Pressed(input.Key.SPACE))
     {
         Application::NextScene();
     }

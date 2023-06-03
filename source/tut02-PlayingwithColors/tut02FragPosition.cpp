@@ -1,22 +1,22 @@
-#include "tut02.h"
+#include "tut02FragPosition.h"
 #include <core/application.h>
 
-Tut02::Tut02()
+Tut02FragPosition::Tut02FragPosition()
 {
 }
 
-void Tut02::Init()
+void Tut02FragPosition::Init()
 {
     Array<IDrawable::Vertex> vertices;
     Array<unsigned int> indices;
     Array<String> shaders(2);
 
-    vertices.Add(IDrawable::Vertex(glm::vec3( 1.0f,  1.0f, -1.0f), glm::vec4(0.0f, 0.0f, 0.0f, 1.0f)));
-    vertices.Add(IDrawable::Vertex(glm::vec3( 1.0f, -1.0f, -1.0f), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f)));
-    vertices.Add(IDrawable::Vertex(glm::vec3(-1.0f, -1.0f, -1.0f), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f)));
+    vertices.Add(IDrawable::Vertex(glm::vec3( 1.0f,  1.0f, -1.0f)));
+    vertices.Add(IDrawable::Vertex(glm::vec3( 1.0f, -1.0f, -1.0f)));
+    vertices.Add(IDrawable::Vertex(glm::vec3(-1.0f, -1.0f, -1.0f)));
 
-    IFile *simpleVertShader = filesystem->Open(URL("data/VertexColors.vert"), PLAIN_TEXT);
-    IFile *simpleFragShader = filesystem->Open(URL("data/VertexColors.frag"), PLAIN_TEXT);
+    IFile *simpleVertShader = filesystem->Open(URL("data/FragPosition.vert"), PLAIN_TEXT);
+    IFile *simpleFragShader = filesystem->Open(URL("data/FragPosition.frag"), PLAIN_TEXT);
 
     shaders.Insert(simpleVertShader->Read(), VERTEX_SHADER);
     shaders.Insert(simpleFragShader->Read(), FRAGMENT_SHADER);
@@ -25,7 +25,7 @@ void Tut02::Init()
     delete simpleFragShader;
 
     triangle = renderer->CreateDrawable(vertices, indices, shaders, NULL);
-    description = new Text("TUT02 - PRESS SPACE FOR NEXT SCENE");
+    description = new Text("TUT02 FRAG - PRESS SPACE FOR NEXT SCENE");
 
     camera = new Camera();
 
@@ -33,21 +33,21 @@ void Tut02::Init()
     components.Add(camera);
 }
 
-void Tut02::Update()
+void Tut02FragPosition::Update()
 {
     renderer->Draw(triangle);
 
-    if (input.Released(input.Key.SPACE))
+    if (input.Pressed(input.Key.SPACE))
     {
         Application::NextScene();
     }
 }
 
-void Tut02::UpdateAfterPhysics()
+void Tut02FragPosition::UpdateAfterPhysics()
 {
 }
 
-/* Original tut02 code FragPosition.cpp
+/* Original source code FragPosition.cpp
 #include <string>
 #include <vector>
 #include <math.h>
@@ -58,25 +58,24 @@ void Tut02::UpdateAfterPhysics()
 
 #define ARRAY_COUNT( array ) (sizeof( array ) / (sizeof( array[0] ) * (sizeof( array ) != sizeof(void*) || sizeof( array[0] ) <= sizeof(void*))))
 
+
 GLuint theProgram;
+GLuint elapsedTimeUniform;
 
 void InitializeProgram()
 {
 	std::vector<GLuint> shaderList;
 
-	shaderList.push_back(Framework::LoadShader(GL_VERTEX_SHADER, "data/VertexColors.vert"));
-	shaderList.push_back(Framework::LoadShader(GL_FRAGMENT_SHADER, "data/VertexColors.frag"));
+	shaderList.push_back(Framework::LoadShader(GL_VERTEX_SHADER, "data/FragPosition.vert"));
+	shaderList.push_back(Framework::LoadShader(GL_FRAGMENT_SHADER, "data/FragPosition.frag"));
 
 	theProgram = Framework::CreateProgram(shaderList);
 }
 
 const float vertexData[] = {
-	 0.0f,    0.5f, 0.0f, 1.0f,
-	 0.5f, -0.366f, 0.0f, 1.0f,
-	-0.5f, -0.366f, 0.0f, 1.0f,
-	 1.0f,    0.0f, 0.0f, 1.0f,
-	 0.0f,    1.0f, 0.0f, 1.0f,
-	 0.0f,    0.0f, 1.0f, 1.0f,
+	0.75f, 0.75f, 0.0f, 1.0f,
+	0.75f, -0.75f, 0.0f, 1.0f,
+	-0.75f, -0.75f, 0.0f, 1.0f,
 };
 
 GLuint vertexBufferObject;
@@ -114,18 +113,14 @@ void display()
 
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
 	glEnableVertexAttribArray(0);
-	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)48);
 
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 
 	glDisableVertexAttribArray(0);
-	glDisableVertexAttribArray(1);
 	glUseProgram(0);
 
 	glutSwapBuffers();
-	glutPostRedisplay();
 }
 
 //Called whenever the window is resized. The new window size is given, in pixels.

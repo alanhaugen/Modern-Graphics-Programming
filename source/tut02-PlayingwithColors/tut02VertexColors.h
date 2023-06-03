@@ -1,5 +1,5 @@
-#ifndef TUT02_H
-#define TUT02_H
+#ifndef TUT02VERTEXCOLORS_H
+#define TUT02VERTEXCOLORS_H
 
 #include <core/x-platform/scene.h>
 #include <core/components/camera.h>
