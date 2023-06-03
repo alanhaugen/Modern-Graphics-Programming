@@ -19,6 +19,7 @@ SOURCES = \
     $(wildcard source/*.cpp) \
     $(wildcard source/tut01-HelloTriangle/*.cpp) \
     $(wildcard source/tut02-PlayingwithColors/*.cpp)
+#    $(wildcard source/tut03-OpenGLsMovingTriangle/*.cpp)
 
 #############################################################################
 # Setup Asset Conditioning Pipeline

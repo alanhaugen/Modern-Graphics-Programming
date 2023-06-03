@@ -7,8 +7,8 @@ int main(int argc, char **argv)
 {
     Application application(argc, argv);
     application.AddScene(new Tut01());
-    application.AddScene(new Tut02());
     application.AddScene(new Tut02FragPosition());
+    application.AddScene(new Tut02());
 
     return application.Exec();
 }
