@@ -17,11 +17,26 @@ void Tut01::Init()
     IFile *simpleVertShader = filesystem->Open(URL("data/simple.vert"), PLAIN_TEXT);
     IFile *simpleFragShader = filesystem->Open(URL("data/simple.frag"), PLAIN_TEXT);
 
-    shaders.Insert(simpleVertShader->Read(), VERTEX_SHADER);
-    shaders.Insert(simpleFragShader->Read(), FRAGMENT_SHADER);
+    String vertexShader(
+        "#version 330\n"
+        "layout(location = 0) in vec4 position;\n"
+        "void main()\n"
+        "{\n"
+        "   gl_Position = position;\n"
+        "}\n"
+    );
 
-    delete simpleVertShader;
-    delete simpleFragShader;
+    String fragmentShader(
+        "#version 330\n"
+        "out vec4 outputColor;\n"
+        "void main()\n"
+        "{\n"
+        "   outputColor = vec4(1.0f, 1.0f, 1.0f, 1.0f);\n"
+        "}\n"
+    );
+
+    shaders.Insert(vertexShader, VERTEX_SHADER);
+    shaders.Insert(fragmentShader, FRAGMENT_SHADER);
 
     triangle = renderer->CreateDrawable(vertices, indices, shaders, NULL);
     description = new Text("TUT01 - PRESS SPACE FOR NEXT SCENE");
