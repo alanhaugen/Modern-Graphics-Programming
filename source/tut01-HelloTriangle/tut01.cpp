@@ -6,6 +6,28 @@ Tut01::Tut01()
 
 void Tut01::Init()
 {
+    Array<IDrawable::Vertex> vertices;
+    Array<unsigned int> indices;
+    Array<String> shaders(2);
+
+    vertices.Add(IDrawable::Vertex(glm::vec2(-1.0f,  1.0f)));
+    vertices.Add(IDrawable::Vertex(glm::vec2(-1.0f, -1.0f)));
+    vertices.Add(IDrawable::Vertex(glm::vec2( 1.0f, -1.0f)));
+
+    IFile *simpleVertShader = filesystem->Open(URL("data/simple.vert"), PLAIN_TEXT);
+    IFile *simpleFragShader = filesystem->Open(URL("data/simple.frag"), PLAIN_TEXT);
+
+    shaders.Insert(simpleVertShader->Read(), VERTEX_SHADER);
+    shaders.Insert(simpleFragShader->Read(), FRAGMENT_SHADER);
+
+    delete simpleVertShader;
+    delete simpleFragShader;
+
+    drawable = renderer->CreateDrawable(vertices, indices, shaders, &textures);
+    description = new Text("Tut01");
+
+    components.Add(triangle);
+    components.Add(description);
 }
 
 void Tut01::Update()
