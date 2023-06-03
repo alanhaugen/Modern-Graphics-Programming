@@ -10,9 +10,9 @@ void Tut01::Init()
     Array<unsigned int> indices;
     Array<String> shaders(2);
 
-    vertices.Add(IDrawable::Vertex(glm::vec2( 1.0f,  1.0f)));
-    vertices.Add(IDrawable::Vertex(glm::vec2( 1.0f, -1.0f)));
-    vertices.Add(IDrawable::Vertex(glm::vec2(-1.0f, -1.0f)));
+    vertices.Add(IDrawable::Vertex(glm::vec3( 1.0f,  1.0f, -1.0f), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f)));
+    vertices.Add(IDrawable::Vertex(glm::vec3( 1.0f, -1.0f, -1.0f), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f)));
+    vertices.Add(IDrawable::Vertex(glm::vec3(-1.0f, -1.0f, -1.0f), glm::vec4(1.0f, 1.0f, 1.0f, 1.0f)));
 
     IFile *simpleVertShader = filesystem->Open(URL("data/simple.vert"), PLAIN_TEXT);
     IFile *simpleFragShader = filesystem->Open(URL("data/simple.frag"), PLAIN_TEXT);
@@ -24,9 +24,12 @@ void Tut01::Init()
     delete simpleFragShader;
 
     triangle = renderer->CreateDrawable(vertices, indices, shaders, NULL);
-    description = new Text("Tut01");
+    description = new Text("TUT01 - PRESS SPACE FOR NEXT SCENE");
+
+    camera = new Camera();
 
     components.Add(description);
+    components.Add(camera);
 }
 
 void Tut01::Update()
