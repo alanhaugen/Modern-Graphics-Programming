@@ -14,7 +14,11 @@ https://paroj.github.io/gltut/
 
 ![triangle](data/tut01.png "Triangle")
 
-- [ ] Week 22. 2. Playing with Colors
+- [x] Week 22. 2. Playing with Colors
+
+![triangle](data/tut02frag.png "Triangle")
+![triangle](data/tut02vert.png "Triangle")
+
 - [ ] Week 23. II. Positioning
 - [ ] Week 23. 3. OpenGL's Moving Triangle
 - [ ] Week 23. 4. Objects at Rest
