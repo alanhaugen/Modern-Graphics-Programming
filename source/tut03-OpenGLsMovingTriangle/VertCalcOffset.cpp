@@ -25,7 +25,7 @@ void VertCalcOffset::Init()
     delete simpleFragShader;
 
     triangle = renderer->CreateDrawable(vertices, indices, shaders, NULL);
-    description = new Text("TUT02 FRAG - PRESS SPACE FOR NEXT SCENE");
+    description = new Text("TUT03 - PRESS SPACE FOR NEXT SCENE");
 
     camera = new Camera();
 
