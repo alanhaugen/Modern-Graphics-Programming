@@ -1,4 +1,4 @@
-#include "tut02FragPosition.h"
+#include "CPUPositionOffset.h"
 #include <core/application.h>
 
 CPUPositionOffset::CPUPositionOffset()

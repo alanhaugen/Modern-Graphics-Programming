@@ -1,11 +1,11 @@
-#ifndef TUT02VERTEXCOLORS_H
-#define TUT02VERTEXCOLORS_H
+#ifndef FRAGCHANGECOLOR_H
+#define FRAGCHANGECOLOR_H
 
 #include <core/x-platform/scene.h>
 #include <core/components/camera.h>
 #include <core/components/text.h>
 
-class Tut02 : public IScene
+class FragChangeColor : public IScene
 {
 private:
     Camera *camera;
@@ -13,7 +13,7 @@ private:
     Text *description;
 
 public:
-    Tut02();
+    FragChangeColor();
 
     void Init();
     void Update();

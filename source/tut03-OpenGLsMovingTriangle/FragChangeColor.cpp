@@ -1,11 +1,11 @@
-#include "tut02VertexColors.h"
+#include "FragChangeColor.h"
 #include <core/application.h>
 
-Tut02::Tut02()
+FragChangeColor::FragChangeColor()
 {
 }
 
-void Tut02::Init()
+void FragChangeColor::Init()
 {
     Array<IDrawable::Vertex> vertices;
     Array<unsigned int> indices;
@@ -33,7 +33,7 @@ void Tut02::Init()
     components.Add(camera);
 }
 
-void Tut02::Update()
+void FragChangeColor::Update()
 {
     renderer->Draw(triangle);
 
@@ -43,52 +43,60 @@ void Tut02::Update()
     }
 }
 
-void Tut02::UpdateAfterPhysics()
+void FragChangeColor::UpdateAfterPhysics()
 {
 }
 
-/* Original tut02 code VertexColors.cpp
+/* Original tut02 code FragChangeColor.cpp
+
 #include <string>
 #include <vector>
 #include <math.h>
 #include <stdio.h>
+#include <string.h>
 #include <glload/gl_3_3.h>
 #include <GL/freeglut.h>
 #include "../framework/framework.h"
 
-#define ARRAY_COUNT( array ) (sizeof( array ) / (sizeof( array[0] ) * (sizeof( array ) != sizeof(void*) || sizeof( array[0] ) <= sizeof(void*))))
-
 GLuint theProgram;
+GLint elapsedTimeUniform;
 
 void InitializeProgram()
 {
 	std::vector<GLuint> shaderList;
 
-	shaderList.push_back(Framework::LoadShader(GL_VERTEX_SHADER, "data/VertexColors.vert"));
-	shaderList.push_back(Framework::LoadShader(GL_FRAGMENT_SHADER, "data/VertexColors.frag"));
+	shaderList.push_back(Framework::LoadShader(GL_VERTEX_SHADER, "data/calcOffset.vert"));
+	shaderList.push_back(Framework::LoadShader(GL_FRAGMENT_SHADER, "data/calcColor.frag"));
 
 	theProgram = Framework::CreateProgram(shaderList);
+
+	elapsedTimeUniform = glGetUniformLocation(theProgram, "time");
+
+	GLint loopDurationUnf = glGetUniformLocation(theProgram, "loopDuration");
+	GLint fragLoopDurUnf = glGetUniformLocation(theProgram, "fragLoopDuration");
+
+	glUseProgram(theProgram);
+	glUniform1f(loopDurationUnf, 5.0f);
+	glUniform1f(fragLoopDurUnf, 10.0f);
+	glUseProgram(0);
 }
 
-const float vertexData[] = {
-	 0.0f,    0.5f, 0.0f, 1.0f,
-	 0.5f, -0.366f, 0.0f, 1.0f,
-	-0.5f, -0.366f, 0.0f, 1.0f,
-	 1.0f,    0.0f, 0.0f, 1.0f,
-	 0.0f,    1.0f, 0.0f, 1.0f,
-	 0.0f,    0.0f, 1.0f, 1.0f,
+const float vertexPositions[] = {
+	0.25f, 0.25f, 0.0f, 1.0f,
+	0.25f, -0.25f, 0.0f, 1.0f,
+	-0.25f, -0.25f, 0.0f, 1.0f,
 };
 
-GLuint vertexBufferObject;
+GLuint positionBufferObject;
 GLuint vao;
 
 
 void InitializeVertexBuffer()
 {
-	glGenBuffers(1, &vertexBufferObject);
+	glGenBuffers(1, &positionBufferObject);
 
-	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertexData), vertexData, GL_STATIC_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, positionBufferObject);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertexPositions), vertexPositions, GL_STREAM_DRAW);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
@@ -112,16 +120,15 @@ void display()
 
 	glUseProgram(theProgram);
 
-	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
+	glUniform1f(elapsedTimeUniform, glutGet(GLUT_ELAPSED_TIME) / 1000.0f);
+
+	glBindBuffer(GL_ARRAY_BUFFER, positionBufferObject);
 	glEnableVertexAttribArray(0);
-	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)48);
 
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 
 	glDisableVertexAttribArray(0);
-	glDisableVertexAttribArray(1);
 	glUseProgram(0);
 
 	glutSwapBuffers();

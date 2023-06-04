@@ -1,11 +1,11 @@
-#include "tut02FragPosition.h"
+#include "VerticalCalcOffset.h"
 #include <core/application.h>
 
-Tut02FragPosition::Tut02FragPosition()
+VerticalCalcOffset::VerticalCalcOffset()
 {
 }
 
-void Tut02FragPosition::Init()
+void VerticalCalcOffset::Init()
 {
     Array<IDrawable::Vertex> vertices;
     Array<unsigned int> indices;
@@ -33,7 +33,7 @@ void Tut02FragPosition::Init()
     components.Add(camera);
 }
 
-void Tut02FragPosition::Update()
+void VerticalCalcOffset::Update()
 {
     renderer->Draw(triangle);
 
@@ -43,51 +43,57 @@ void Tut02FragPosition::Update()
     }
 }
 
-void Tut02FragPosition::UpdateAfterPhysics()
+void VerticalCalcOffset::UpdateAfterPhysics()
 {
 }
 
-/* Original source code FragPosition.cpp
+/* Original source code VertCalcOffset.cpp
+
 #include <string>
 #include <vector>
 #include <math.h>
 #include <stdio.h>
+#include <string.h>
 #include <glload/gl_3_3.h>
 #include <GL/freeglut.h>
 #include "../framework/framework.h"
 
-#define ARRAY_COUNT( array ) (sizeof( array ) / (sizeof( array[0] ) * (sizeof( array ) != sizeof(void*) || sizeof( array[0] ) <= sizeof(void*))))
-
-
 GLuint theProgram;
-GLuint elapsedTimeUniform;
+GLint elapsedTimeUniform;
 
 void InitializeProgram()
 {
 	std::vector<GLuint> shaderList;
 
-	shaderList.push_back(Framework::LoadShader(GL_VERTEX_SHADER, "data/FragPosition.vert"));
-	shaderList.push_back(Framework::LoadShader(GL_FRAGMENT_SHADER, "data/FragPosition.frag"));
+	shaderList.push_back(Framework::LoadShader(GL_VERTEX_SHADER, "calcOffset.vert"));
+	shaderList.push_back(Framework::LoadShader(GL_FRAGMENT_SHADER, "standard.frag"));
 
 	theProgram = Framework::CreateProgram(shaderList);
+
+	elapsedTimeUniform = glGetUniformLocation(theProgram, "time");
+
+	GLint loopDurationUnf = glGetUniformLocation(theProgram, "loopDuration");
+	glUseProgram(theProgram);
+	glUniform1f(loopDurationUnf, 5.0f);
+	glUseProgram(0);
 }
 
-const float vertexData[] = {
-	0.75f, 0.75f, 0.0f, 1.0f,
-	0.75f, -0.75f, 0.0f, 1.0f,
-	-0.75f, -0.75f, 0.0f, 1.0f,
+const float vertexPositions[] = {
+	0.25f, 0.25f, 0.0f, 1.0f,
+	0.25f, -0.25f, 0.0f, 1.0f,
+	-0.25f, -0.25f, 0.0f, 1.0f,
 };
 
-GLuint vertexBufferObject;
+GLuint positionBufferObject;
 GLuint vao;
 
 
 void InitializeVertexBuffer()
 {
-	glGenBuffers(1, &vertexBufferObject);
+	glGenBuffers(1, &positionBufferObject);
 
-	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertexData), vertexData, GL_STATIC_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, positionBufferObject);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertexPositions), vertexPositions, GL_STATIC_DRAW);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
@@ -111,7 +117,9 @@ void display()
 
 	glUseProgram(theProgram);
 
-	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
+	glUniform1f(elapsedTimeUniform, glutGet(GLUT_ELAPSED_TIME) / 1000.0f);
+
+	glBindBuffer(GL_ARRAY_BUFFER, positionBufferObject);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
 
@@ -121,6 +129,7 @@ void display()
 	glUseProgram(0);
 
 	glutSwapBuffers();
+	glutPostRedisplay();
 }
 
 //Called whenever the window is resized. The new window size is given, in pixels.

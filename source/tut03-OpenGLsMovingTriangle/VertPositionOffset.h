@@ -1,11 +1,11 @@
-#ifndef TUT02FRAGPOSITION_H
-#define TUT02FRAGPOSITION_H
+#ifndef VERTPOSITIONOFFSET_H
+#define VERTPOSITIONOFFSET_H
 
 #include <core/x-platform/scene.h>
 #include <core/components/camera.h>
 #include <core/components/text.h>
 
-class Tut02FragPosition : public IScene
+class VertPositionOffset : public IScene
 {
 private:
     Camera *camera;
@@ -13,7 +13,7 @@ private:
     Text *description;
 
 public:
-    Tut02FragPosition();
+    VertPositionOffset();
 
     void Init();
     void Update();
