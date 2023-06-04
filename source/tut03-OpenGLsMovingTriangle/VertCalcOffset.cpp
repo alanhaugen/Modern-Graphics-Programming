@@ -1,11 +1,11 @@
-#include "VerticalCalcOffset.h"
+#include "VertCalcOffset.h"
 #include <core/application.h>
 
-VerticalCalcOffset::VerticalCalcOffset()
+VertCalcOffset::VertCalcOffset()
 {
 }
 
-void VerticalCalcOffset::Init()
+void VertCalcOffset::Init()
 {
     Array<IDrawable::Vertex> vertices;
     Array<unsigned int> indices;
@@ -33,7 +33,7 @@ void VerticalCalcOffset::Init()
     components.Add(camera);
 }
 
-void VerticalCalcOffset::Update()
+void VertCalcOffset::Update()
 {
     renderer->Draw(triangle);
 
@@ -43,7 +43,7 @@ void VerticalCalcOffset::Update()
     }
 }
 
-void VerticalCalcOffset::UpdateAfterPhysics()
+void VertCalcOffset::UpdateAfterPhysics()
 {
 }
 
@@ -65,8 +65,8 @@ void InitializeProgram()
 {
 	std::vector<GLuint> shaderList;
 
-	shaderList.push_back(Framework::LoadShader(GL_VERTEX_SHADER, "calcOffset.vert"));
-	shaderList.push_back(Framework::LoadShader(GL_FRAGMENT_SHADER, "standard.frag"));
+	shaderList.push_back(Framework::LoadShader(GL_VERTEX_SHADER, "data/calcOffset.vert"));
+	shaderList.push_back(Framework::LoadShader(GL_FRAGMENT_SHADER, "data/standard.frag"));
 
 	theProgram = Framework::CreateProgram(shaderList);
 

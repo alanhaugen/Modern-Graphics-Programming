@@ -5,7 +5,7 @@
 #include <core/components/camera.h>
 #include <core/components/text.h>
 
-class VerticalCalcOffset : public IScene
+class VertCalcOffset : public IScene
 {
 private:
     Camera *camera;
@@ -13,7 +13,7 @@ private:
     Text *description;
 
 public:
-    VerticalCalcOffset();
+    VertCalcOffset();
 
     void Init();
     void Update();
