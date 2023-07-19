@@ -10,6 +10,7 @@
 #include "tut04-ObjectsAtRest/MatrixPerspective.h"
 #include "tut04-ObjectsAtRest/OrthoCube.h"
 #include "tut04-ObjectsAtRest/ShaderPerspective.h"
+#include "tut05-ObjectsAtRest/BaseVertexOverlap.h"
 
 int main(int argc, char **argv)
 {
