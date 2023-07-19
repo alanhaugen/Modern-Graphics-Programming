@@ -5,7 +5,7 @@
 #include <core/components/camera.h>
 #include <core/components/text.h>
 
-class Tut02 : public IScene
+class Tut02VertexColors : public IScene
 {
 private:
     Camera *camera;
@@ -13,7 +13,7 @@ private:
     Text *description;
 
 public:
-    Tut02();
+    Tut02VertexColors();
 
     void Init();
     void Update();

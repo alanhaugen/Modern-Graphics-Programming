@@ -1,4 +1,4 @@
-#include "tut02FragPosition.h"
+#include "FragPosition.h"
 #include <core/application.h>
 
 Tut02FragPosition::Tut02FragPosition()

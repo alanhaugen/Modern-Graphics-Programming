@@ -1,11 +1,11 @@
-#include "tut02VertexColors.h"
+#include "VertexColors.h"
 #include <core/application.h>
 
-Tut02::Tut02()
+Tut02VertexColors::Tut02VertexColors()
 {
 }
 
-void Tut02::Init()
+void Tut02VertexColors::Init()
 {
     Array<IDrawable::Vertex> vertices;
     Array<unsigned int> indices;
@@ -33,7 +33,7 @@ void Tut02::Init()
     components.Add(camera);
 }
 
-void Tut02::Update()
+void Tut02VertexColors::Update()
 {
     renderer->Draw(triangle);
 
@@ -43,7 +43,7 @@ void Tut02::Update()
     }
 }
 
-void Tut02::UpdateAfterPhysics()
+void Tut02VertexColors::UpdateAfterPhysics()
 {
 }
 
