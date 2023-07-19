@@ -5,7 +5,7 @@
 #include <core/components/camera.h>
 #include <core/components/text.h>
 
-class CPUPositionOffset : public IScene
+class Tut03CPUPositionOffset : public IScene
 {
 private:
     Camera *camera;
@@ -13,7 +13,7 @@ private:
     Text *description;
 
 public:
-    CPUPositionOffset();
+    Tut03CPUPositionOffset();
 
     void Init();
     void Update();

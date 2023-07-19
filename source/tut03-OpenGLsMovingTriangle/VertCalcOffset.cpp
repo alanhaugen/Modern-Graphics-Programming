@@ -1,11 +1,11 @@
 #include "VertCalcOffset.h"
 #include <core/application.h>
 
-VertCalcOffset::VertCalcOffset()
+Tut03VertCalcOffset::Tut03VertCalcOffset()
 {
 }
 
-void VertCalcOffset::Init()
+void Tut03VertCalcOffset::Init()
 {
     Array<IDrawable::Vertex> vertices;
     Array<unsigned int> indices;
@@ -33,7 +33,7 @@ void VertCalcOffset::Init()
     components.Add(camera);
 }
 
-void VertCalcOffset::Update()
+void Tut03VertCalcOffset::Update()
 {
     renderer->Draw(triangle);
 
@@ -43,11 +43,11 @@ void VertCalcOffset::Update()
     }
 }
 
-void VertCalcOffset::UpdateAfterPhysics()
+void Tut03VertCalcOffset::UpdateAfterPhysics()
 {
 }
 
-/* Original source code VertCalcOffset.cpp
+/* Original source code Tut03VertCalcOffset.cpp
 
 #include <string>
 #include <vector>

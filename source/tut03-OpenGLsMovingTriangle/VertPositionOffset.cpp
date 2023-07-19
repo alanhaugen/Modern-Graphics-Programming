@@ -1,11 +1,11 @@
 #include "VertPositionOffset.h"
 #include <core/application.h>
 
-VertPositionOffset::VertPositionOffset()
+Tut03VertPositionOffset::Tut03VertPositionOffset()
 {
 }
 
-void VertPositionOffset::Init()
+void Tut03VertPositionOffset::Init()
 {
     Array<IDrawable::Vertex> vertices;
     Array<unsigned int> indices;
@@ -33,7 +33,7 @@ void VertPositionOffset::Init()
     components.Add(camera);
 }
 
-void VertPositionOffset::Update()
+void Tut03VertPositionOffset::Update()
 {
     renderer->Draw(triangle);
 
@@ -43,11 +43,11 @@ void VertPositionOffset::Update()
     }
 }
 
-void VertPositionOffset::UpdateAfterPhysics()
+void Tut03VertPositionOffset::UpdateAfterPhysics()
 {
 }
 
-/* Original source code VertPositionOffset.cpp
+/* Original source code Tut03VertPositionOffset.cpp
 
 #include <string>
 #include <vector>

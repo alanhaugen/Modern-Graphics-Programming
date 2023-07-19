@@ -13,10 +13,10 @@ int main(int argc, char **argv)
     application.AddScene(new Tut01());
     application.AddScene(new Tut02FragPosition());
     application.AddScene(new Tut02());
-    application.AddScene(new CPUPositionOffset());
-    application.AddScene(new FragChangeColor());
-    application.AddScene(new VertCalcOffset());
-    application.AddScene(new VertPositionOffset());
+    application.AddScene(new Tut03CPUPositionOffset());
+    application.AddScene(new Tut03FragChangeColor());
+    application.AddScene(new Tut03VertCalcOffset());
+    application.AddScene(new Tut03VertPositionOffset());
 
     return application.Exec();
 }

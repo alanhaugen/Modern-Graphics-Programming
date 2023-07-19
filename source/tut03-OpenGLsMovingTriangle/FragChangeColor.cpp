@@ -1,11 +1,11 @@
 #include "FragChangeColor.h"
 #include <core/application.h>
 
-FragChangeColor::FragChangeColor()
+Tut03FragChangeColor::Tut03FragChangeColor()
 {
 }
 
-void FragChangeColor::Init()
+void Tut03FragChangeColor::Init()
 {
     Array<IDrawable::Vertex> vertices;
     Array<unsigned int> indices;
@@ -33,7 +33,7 @@ void FragChangeColor::Init()
     components.Add(camera);
 }
 
-void FragChangeColor::Update()
+void Tut03FragChangeColor::Update()
 {
     renderer->Draw(triangle);
 
@@ -43,11 +43,11 @@ void FragChangeColor::Update()
     }
 }
 
-void FragChangeColor::UpdateAfterPhysics()
+void Tut03FragChangeColor::UpdateAfterPhysics()
 {
 }
 
-/* Original tut02 code FragChangeColor.cpp
+/* Original tut02 code Tut03FragChangeColor.cpp
 
 #include <string>
 #include <vector>

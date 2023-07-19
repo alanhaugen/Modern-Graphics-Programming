@@ -5,7 +5,7 @@
 #include <core/components/camera.h>
 #include <core/components/text.h>
 
-class FragChangeColor : public IScene
+class Tut03FragChangeColor : public IScene
 {
 private:
     Camera *camera;
@@ -13,7 +13,7 @@ private:
     Text *description;
 
 public:
-    FragChangeColor();
+    Tut03FragChangeColor();
 
     void Init();
     void Update();

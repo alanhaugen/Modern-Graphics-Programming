@@ -5,7 +5,7 @@
 #include <core/components/camera.h>
 #include <core/components/text.h>
 
-class VertPositionOffset : public IScene
+class Tut03VertPositionOffset : public IScene
 {
 private:
     Camera *camera;
@@ -13,7 +13,7 @@ private:
     Text *description;
 
 public:
-    VertPositionOffset();
+    Tut03VertPositionOffset();
 
     void Init();
     void Update();

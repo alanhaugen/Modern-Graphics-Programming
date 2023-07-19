@@ -1,11 +1,11 @@
 #include "CPUPositionOffset.h"
 #include <core/application.h>
 
-CPUPositionOffset::CPUPositionOffset()
+Tut03CPUPositionOffset::Tut03CPUPositionOffset()
 {
 }
 
-void CPUPositionOffset::Init()
+void Tut03CPUPositionOffset::Init()
 {
     Array<IDrawable::Vertex> vertices;
     Array<unsigned int> indices;
@@ -33,7 +33,7 @@ void CPUPositionOffset::Init()
     components.Add(camera);
 }
 
-void CPUPositionOffset::Update()
+void Tut03CPUPositionOffset::Update()
 {
     renderer->Draw(triangle);
 
@@ -43,11 +43,11 @@ void CPUPositionOffset::Update()
     }
 }
 
-void CPUPositionOffset::UpdateAfterPhysics()
+void Tut03CPUPositionOffset::UpdateAfterPhysics()
 {
 }
 
-/* Original source code CPUPositionOffset.cpp
+/* Original source code Tut03CPUPositionOffset.cpp
 
 #include <string>
 #include <vector>
