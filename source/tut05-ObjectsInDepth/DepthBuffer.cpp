@@ -1,18 +1,18 @@
-#include "BaseVertexOverlap.h"
+#include "DepthBuffer.h"
 
-BaseVertexOverlap::BaseVertexOverlap()
+DepthBuffer::DepthBuffer()
 {
 };
 
-void BaseVertexOverlap::Init()
+void DepthBuffer::Init()
 {
 };
 
-void BaseVertexOverlap::Update()
+void DepthBuffer::Update()
 {
 };
 
-void BaseVertexOverlap::UpdateAfterPhysics()
+void DepthBuffer::UpdateAfterPhysics()
 {
 };
 
@@ -106,8 +106,8 @@ const float vertexData[] = {
 	RIGHT_EXTENT,	TOP_EXTENT,		REAR_EXTENT,
 	RIGHT_EXTENT,	BOTTOM_EXTENT,	REAR_EXTENT,
 
-//	0, 2, 1,
-//	3, 2, 0,
+	//	0, 2, 1,
+	//	3, 2, 0,
 
 	//Object 2 positions
 	TOP_EXTENT,		RIGHT_EXTENT,	REAR_EXTENT,
@@ -123,11 +123,11 @@ const float vertexData[] = {
 	TOP_EXTENT,		RIGHT_EXTENT,	REAR_EXTENT,
 	MIDDLE_EXTENT,	RIGHT_EXTENT,	FRONT_EXTENT,
 	BOTTOM_EXTENT,	RIGHT_EXTENT,	REAR_EXTENT,
-					
+
 	TOP_EXTENT,		LEFT_EXTENT,	REAR_EXTENT,
 	MIDDLE_EXTENT,	LEFT_EXTENT,	FRONT_EXTENT,
 	BOTTOM_EXTENT,	LEFT_EXTENT,	REAR_EXTENT,
-					
+
 	BOTTOM_EXTENT,	RIGHT_EXTENT,	REAR_EXTENT,
 	TOP_EXTENT,		RIGHT_EXTENT,	REAR_EXTENT,
 	TOP_EXTENT,		LEFT_EXTENT,	REAR_EXTENT,
@@ -239,6 +239,11 @@ void init()
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
 	glFrontFace(GL_CW);
+
+	glEnable(GL_DEPTH_TEST);
+	glDepthMask(GL_TRUE);
+	glDepthFunc(GL_LEQUAL);
+	glDepthRange(0.0f, 1.0f);
 }
 
 //Called to update the display.
@@ -247,7 +252,8 @@ void init()
 void display()
 {
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClearDepth(1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glUseProgram(theProgram);
 
