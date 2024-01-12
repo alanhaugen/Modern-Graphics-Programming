@@ -5,8 +5,35 @@ solid {
         name: "ModernGraphicsProgramming"
 
         files: [
+            "README.md",
             "source/main.cpp",
             "source/main.h",
+            "source/tut01-HelloTriangle/tut01.cpp",
+            "source/tut01-HelloTriangle/tut01.h",
+            "source/tut02-PlayingwithColors/FragPosition.cpp",
+            "source/tut02-PlayingwithColors/FragPosition.h",
+            "source/tut02-PlayingwithColors/VertexColors.cpp",
+            "source/tut02-PlayingwithColors/VertexColors.h",
+            "source/tut03-OpenGLsMovingTriangle/CPUPositionOffset.cpp",
+            "source/tut03-OpenGLsMovingTriangle/CPUPositionOffset.h",
+            "source/tut03-OpenGLsMovingTriangle/FragChangeColor.cpp",
+            "source/tut03-OpenGLsMovingTriangle/FragChangeColor.h",
+            "source/tut03-OpenGLsMovingTriangle/VertCalcOffset.cpp",
+            "source/tut03-OpenGLsMovingTriangle/VertCalcOffset.h",
+            "source/tut03-OpenGLsMovingTriangle/VertPositionOffset.cpp",
+            "source/tut03-OpenGLsMovingTriangle/VertPositionOffset.h",
+            "source/tut04-ObjectsAtRest/AspectRatio.cpp",
+            "source/tut04-ObjectsAtRest/AspectRatio.h",
+            "source/tut04-ObjectsAtRest/MatrixPerspective.cpp",
+            "source/tut04-ObjectsAtRest/MatrixPerspective.h",
+            "source/tut04-ObjectsAtRest/OrthoCube.cpp",
+            "source/tut04-ObjectsAtRest/OrthoCube.h",
+            "source/tut04-ObjectsAtRest/ShaderPerspective.cpp",
+            "source/tut04-ObjectsAtRest/ShaderPerspective.h",
+            "source/tut05-ObjectsInDepth/BaseVertexOverlap.cpp",
+            "source/tut05-ObjectsInDepth/BaseVertexOverlap.h",
+            "source/tut05-ObjectsInDepth/DepthBuffer.cpp",
+            "source/tut05-ObjectsInDepth/DepthBuffer.h",
         ]
 
         Depends { name: "core"  }

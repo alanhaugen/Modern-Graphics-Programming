@@ -1,16 +1,21 @@
 #include <core/application.h>
+
 #include "tut01-HelloTriangle/tut01.h"
+
 #include "tut02-PlayingwithColors/FragPosition.h"
 #include "tut02-PlayingwithColors/VertexColors.h"
+
 #include "tut03-OpenGLsMovingTriangle/CPUPositionOffset.h"
 #include "tut03-OpenGLsMovingTriangle/FragChangeColor.h"
 #include "tut03-OpenGLsMovingTriangle/VertCalcOffset.h"
 #include "tut03-OpenGLsMovingTriangle/VertPositionOffset.h"
+
 #include "tut04-ObjectsAtRest/AspectRatio.h"
 #include "tut04-ObjectsAtRest/MatrixPerspective.h"
 #include "tut04-ObjectsAtRest/OrthoCube.h"
 #include "tut04-ObjectsAtRest/ShaderPerspective.h"
-#include "tut05-ObjectsAtRest/BaseVertexOverlap.h"
+
+#include "tut05-ObjectsInDepth/BaseVertexOverlap.h"
 
 int main(int argc, char **argv)
 {
